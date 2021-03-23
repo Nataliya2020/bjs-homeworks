@@ -4,25 +4,20 @@ console.clear();
 
 const weapons = [new Knife(), new Staff(), new Axe(), new StormStaff(), new LongBow(), new Bow()];
 
-console.table(weapons);
-
 function getNames() {
   return weapons.map(weapon => weapon.name);
 }
 
 function getCountReliableWeapons(strength) {
-  console.log(weapons.filter(weapon => weapon.durability > strength).length);
   return weapons.filter(weapon => weapon.durability > strength).length;
 }
 
 function hasReliableWeapons(strength) {
-  console.log(weapons.some(weapon => weapon.durability > strength));
   return weapons.some(weapon => weapon.durability > strength);
 }
 
 function getReliableWeaponsNames(strength) {
   const moreThanThePassedValue = weapons.filter(weapon => weapon.durability > strength);
-  console.log(moreThanThePassedValue.map(moreThanThePassedValue => moreThanThePassedValue.name));
   return moreThanThePassedValue.map(moreThanThePassedValue => moreThanThePassedValue.name);
 }
 
@@ -75,7 +70,6 @@ function compareArrays(arr1, arr2) {
 
 //мемоизация
 function memorize(fn, limit) {
-  console.log(limit);
 
   const memory = [];
   let mSum;
@@ -106,9 +100,7 @@ function memorize(fn, limit) {
     }
 
     if (memory.length > limit) {
-      console.log(`Сейчас ${memory.length} объектов, лимит ${limit}. Сейчас приведем к ограничивающему значению`);
       memory.splice(0, 1);
-      console.log(`Сейчас их уже ${memory.length}`);
     }
     return res;
   }
